@@ -23,3 +23,34 @@ app.get('/',(req,res)=>{
 app.listen(8080,()=>{
     console.log("server running on port 8080")
 })
+
+
+//application level middleWare
+
+const express = require
+
+const app = express();
+
+app.use((req,res,next)=>{
+    console.log("time",Date.now());
+    next();
+});
+
+
+
+//Router level MiddleWare
+
+const express = require('express')
+const router = express.Router();//making individual routing
+
+router.use((req,res,next)=>{
+    console.log("this is the midddleaWare for router yourself");
+    next()
+})
+
+router.get('/user/:ID',(req,res)=>{
+
+    res.send("user Profile")
+
+})
+app.use('/api',router) //start the all of this requiest going through this API
